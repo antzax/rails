@@ -272,7 +272,7 @@ module ActiveStorage
 
       private
         def validate_global_service_configuration(model_class)
-          if model_class.connected? && ActiveStorage::Blob.table_exists? && Rails.configuration.active_storage.service.nil?
+          if model_class.connected? && ActiveStorage::Blob.table_exists? && ActiveStorage::Blob.service.nil?
             raise RuntimeError, "Missing Active Storage service name. Specify Active Storage service name for config.active_storage.service in config/environments/#{Rails.env}.rb"
           end
         end
